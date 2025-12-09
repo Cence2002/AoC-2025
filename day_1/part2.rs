@@ -4,14 +4,10 @@ fn main() {
     let mut position: i32 = 50;
     let mut password: u32 = 0;
     for line in lines {
-        let sign = line.chars().next();
-        let distance = &line[1..].parse::<u32>().unwrap();
-        for _ in 0..*distance {
-            match sign {
-                Some('R') => position += 1,
-                Some('L') => position -= 1,
-                _ => panic!("wtf"),
-            }
+        let sign: char = line.chars().next().unwrap();
+        let distance: i32 = line[1..].parse::<i32>().unwrap();
+        for _ in 0..distance {
+            position += if sign == 'R' { 1 } else { -1 };
             position = position.rem_euclid(100);
             if position == 0 {
                 password += 1;
