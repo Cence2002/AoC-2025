@@ -1,0 +1,9 @@
+{
+  "name": "aoc-2025",
+  "image": "python:3",
+  "workspaceFolder": "/workspaces/aoc-2025",
+  "features": {},
+  "mounts": [
+    "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached"
+  ]
+}
