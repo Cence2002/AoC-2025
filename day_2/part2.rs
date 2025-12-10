@@ -1,11 +1,23 @@
 fn is_invalid(id: u64) -> bool {
-    let id_str = id.to_string();
-    let len = id_str.len();
-    if len % 2 != 0 {
-        return false;
+    let id = id.to_string();
+    let len = id.len();
+    for k in 1..=(len-1) {
+        if len % k != 0 {
+            continue;
+        }
+        let chunk = &id[..k];
+        let mut invalid = true;
+        for i in (0..len).step_by(k) {
+            if &id[i..i+k] != chunk {
+                invalid = false;
+                break;
+            }
+        }
+        if invalid {
+            return true;
+        }
     }
-    let mid = len / 2;
-    return id_str[..mid] == id_str[mid..];
+    return false;
 }
 
 
