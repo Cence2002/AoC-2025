@@ -1,4 +1,4 @@
-const INPUT_PATH: &str = "example.txt";
+const INPUT_PATH: &str = "input.txt";
 
 fn main() {
     let input: String = std::fs::read_to_string(INPUT_PATH).unwrap();
@@ -10,10 +10,10 @@ fn main() {
         for i in 0..bank.len() {
             for j in i+1..bank.len() {
                 let joltage = bank[i] * 10 + bank[j];
-                max_joltage = max_joltage.max(joltage as u32);
+                max_joltage = max_joltage.max(joltage as u8);
             }
         }
-        total_joltage += max_joltage;
+        total_joltage += max_joltage as u32;
     }
     println!("{}", total_joltage);
 }
