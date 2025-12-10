@@ -9,9 +9,9 @@ fn main() {
         roll_grid.push(line.chars().map(|c| c == '@').collect::<Vec<bool>>());
     }
     let mut accessible: u32 = 0;
-    for x in 0 .. grid_size as isize {
-        for y in 0 .. grid_size as isize {
-            if !roll_grid[x as usize][y as usize] {
+    for x in 0 .. grid_size {
+        for y in 0 .. grid_size {
+            if !roll_grid[x][y] {
                 continue;
             }
             let mut neighbours: u8 = 0;
@@ -19,8 +19,8 @@ fn main() {
                 (1, 0), (-1, 0), (0, 1), (0, -1),
                 (1, 1), (1, -1), (-1, 1), (-1, -1),
             ] {
-                let neighbour_x = x + dx;
-                let neighbour_y = y + dy;
+                let neighbour_x = x as isize + dx;
+                let neighbour_y = y as isize + dy;
                 if neighbour_x < 0 ||
                     neighbour_y < 0 ||
                     neighbour_x >= grid_size as isize ||
