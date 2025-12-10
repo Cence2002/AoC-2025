@@ -1,5 +1,7 @@
+const INPUT_PATH: &str = "example.txt";
+
 fn main() {
-    let input: String = std::fs::read_to_string("example.txt").unwrap();
+    let input: String = std::fs::read_to_string(INPUT_PATH).unwrap();
     let lines: Vec<&str> = input.lines().collect();
     let mut total_joltage: u32 = 0;
     for line in lines {

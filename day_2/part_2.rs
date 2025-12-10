@@ -1,3 +1,5 @@
+const INPUT_PATH: &str = "input.txt";
+
 fn is_invalid(id: u64) -> bool {
     let id = id.to_string();
     let len = id.len();
@@ -20,9 +22,8 @@ fn is_invalid(id: u64) -> bool {
     return false;
 }
 
-
 fn main() {
-    let input: String = std::fs::read_to_string("input.txt").unwrap();
+    let input: String = std::fs::read_to_string(INPUT_PATH).unwrap();
     let ranges: Vec<&str> = input.split(",").collect();
     let mut invalid: Vec<u64> = Vec::new();
     for range in ranges {

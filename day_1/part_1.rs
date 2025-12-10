@@ -1,5 +1,7 @@
+const INPUT_PATH: &str = "input.txt";
+
 fn main() {
-    let input = std::fs::read_to_string("input.txt").unwrap();
+    let input = std::fs::read_to_string(INPUT_PATH).unwrap();
     let lines: Vec<&str> = input.lines().collect();
     let mut position: i32 = 50;
     let mut password: u32 = 0;
